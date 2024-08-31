@@ -1,0 +1,45 @@
+<nav class="bg-slate-100 py-4">
+  <div class="container text-center mx-auto 2xl:w-11/12 flex flex-col lg:flex-row lg:justify-between">
+    <div class="gap-3 flex flex-col items-center lg:flex-row ">
+      <img class="w-36" src="assets/images/freshcart-logo.svg">
+      <ul class="flex flex-col gap-1 lg:flex-row lg:gap-3">
+        @if(isLogIn)
+        {
+          <li><a routerLink="/home">{{'Home' | translate}}</a></li>
+        <li><a routerLink="/cart">{{'Cart' | translate}}</a></li>
+        <li><a routerLink="/products">{{'Products' | translate}}</a></li>
+        <li><a routerLink="/categories">{{'Category'| translate}}</a></li>
+        <li><a routerLink="/brands">{{'Brands'| translate}}</a></li>
+        }
+      </ul>
+
+    </div>
+    <div class="gap-3 items-center  flex flex-col lg:flex-row">
+  
+      <ul class="gap-3 flex flex-col lg:flex-row lg:order-1">
+        @if(!isLogIn)
+        {
+          <li><a routerLink="/login">{{'logIn' | translate}}</a></li>
+        <li><a routerLink="/register">{{'Register'| translate}}</a></li>
+        }
+        <li><a class="cursor-pointer" (click)="changeLang('en')" >En</a></li>
+        <li><a class="cursor-pointer" (click)="changeLang('ar')" >Ar</a></li>
+        @if(isLogIn)
+        {
+          <li><a routerLink="/cart">
+            <i class="fa-solid fa-cart-shopping text-main"></i>
+          </a></li>
+          <li><a (click)="logout()" >{{'Logout' | translate}}</a></li>
+        }
+      </ul>
+  
+      <div class="gap-3 flex flex-row justify-center">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+    </div>
+  </div>
+</nav>
